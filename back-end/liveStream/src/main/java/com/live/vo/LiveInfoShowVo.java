@@ -14,4 +14,5 @@ public class LiveInfoShowVo {
     private long typeId;
     private String type;
     private List<LiveTag> tag;
+    private String coverUrl;
 }

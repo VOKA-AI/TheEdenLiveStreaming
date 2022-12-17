@@ -106,16 +106,12 @@ public class IUsersServiceImpl extends ServiceImpl<UserMapper,User> implements I
 
     @Override
     public User getCurrentLoginUser(String username) {
-//        SecurityContext ctx = SecurityContextHolder.getContext();
-//        Authentication auth = ctx.getAuthentication();
-//        AdminUserDetails adminUserDetails = (AdminUserDetails)auth.getPrincipal();
-//        return adminUserDetails.getUser();
+
         return getAdminByUsername(username);
     }
 
     @Override
     public Long getCurrentUserId() {
-//        return getCurrentLoginUser().getId();
         return 0l;
     }
 
