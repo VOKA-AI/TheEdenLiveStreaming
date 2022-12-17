@@ -83,3 +83,40 @@ As a Web3.0 platform, ***The Eden*** will issue its own tokens.
   <p>Business Model</p>
 </div>
 
+### How to Participate
+
+#### Audience Mode (**Watch to Earn**)
+In Audience Mode, users are required with NFT face mask to earn tokens by watching broadcast. Each NFT has Activity Level. The Activity Level will affect the Everyday EDC Production (EEP). The EEP is the Estimated Number according to the Trend of the previous 5 days EPPs. 
+
+In order to level up the NFT, users have some method to gain Activity:
+
+1.	Chancel Daily Subscribe: Spend EDC to subscribe KOL channel to earn 1 Activity.
+2.	Gift Purchase: Purchase gift or donation for KOL. Spend 1 EDC to get 1 Activity.
+3.	Daily Online Rewards: 20 mins online activity will gain 1 Activity. Higher Level has longer Daily Reward Duration. 
+4.	Register Invitation: Every 1 New Register to gain 3 Activities. 
+5.	EDT – EDC Swap: Exchanged EDT to EDC. Get every 1 EDC to gain 1 Activity.  
+
+<div align="center">
+  <img src=https://github.com/VOKA-AI/.github/blob/main/assets/token.png width=80% align="center"/>
+  <p>The Level of NFT 3D face mask has different factors</p>
+</div>
+
+
+#### KOL Mode (**Live-Streaming to Earn**)
+Every user can be a KOL and own an exclusive channel. KOL Channel can be purchased by EDT, which is similar as the Land NFT of GameFi. Every Channel has exclusive IPFS storage and Live Room. 
+
+IPFS storage will store the “Wonderful Moment” of broadcast content. 
+
+The Live Room has capacity of audience. KOL can self-purchase or crowdfunding from subscribers to upgrade the Live Room. The subscribers will have multiple speed to increase the EDC Production. (Pending)
+
+
+#### Miner Mode (**Skating Mining**)
+
+Miners will contribute the assets for IPFS live-streaming service. In term, they will get EDT as return. (Pending)
+
+
+### Tokenomics and the usage of Token
+
+#### EDT: Governance Token
+
+1.	EDC to EDT Swap Transaction Fee
