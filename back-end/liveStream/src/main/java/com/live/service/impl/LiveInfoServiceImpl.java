@@ -2,6 +2,7 @@ package com.live.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.live.entry.LiveAccount;
 import com.live.entry.LiveInfo;
 import com.live.entry.LiveTag;
 import com.live.entry.LiveType;
@@ -83,6 +84,8 @@ public class LiveInfoServiceImpl extends ServiceImpl<LiveInfoMapper, LiveInfo> i
 
         LiveType liveType = liveTypeService.getBaseMapper().selectById(liveInfo.getTypeId());
 
+        QueryWrapper<LiveAccount> liveAccountQueryWrapper = new QueryWrapper<>();
+        liveAccountQueryWrapper.eq("user_id",userID);
 
 
         LiveInfoShowVo liveInfoShowVo = new LiveInfoShowVo();
@@ -92,9 +95,7 @@ public class LiveInfoServiceImpl extends ServiceImpl<LiveInfoMapper, LiveInfo> i
         if(liveType != null){
             liveInfoShowVo.setType(liveType.getType());
             liveInfoShowVo.setTypeId(liveType.getId());
-
         }
-
 
         return ResultObject.success(liveInfoShowVo,"获取成功");
     }

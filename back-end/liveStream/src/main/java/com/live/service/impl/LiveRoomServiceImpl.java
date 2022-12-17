@@ -72,6 +72,7 @@ public class LiveRoomServiceImpl extends ServiceImpl<LiveAccountMapper, LiveAcco
         liveAccount.setLivePath(livePath);
         liveAccount.setState(0);
         liveAccount.setUserId(user.getId());
+        liveAccount.setOnlineNumber(0l);
 
         return save(liveAccount);
     }
@@ -196,7 +197,7 @@ public class LiveRoomServiceImpl extends ServiceImpl<LiveAccountMapper, LiveAcco
         //修改为暂时下播状态
         status.setTime(System.currentTimeMillis());
         status.setResultCode(ResultCode.UNPUBLISH_TEMP);
-
+        LiveConstant.statusMap.put(usersService.getUserNameById(userId),status);
         //将直播间里的状态修改为0
         liveAccount.setState(0);
         if(baseMapper.updateById(liveAccount) > 0){
