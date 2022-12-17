@@ -7,16 +7,10 @@
       <img src="@/assets/icons/Button_User_Notice.svg" alt="" />
     </div>
     <div class="middle">
-      <span
-        class="sorts"
-        v-for="(item, index) in allType"
-        :class="{
-          active: liveStore.liveTypeId === index + 1 && route.name === 'category',
-        }"
-        @click="typeClick(index, item.typeId)"
-      >
-        <img :src="loadingImg(item?.iconUrl)"
-      /></span>
+      <span class="sorts" v-for="(item, index) in allType" :class="{
+        active: liveStore.liveTypeId === index + 1 && route.name === 'category',
+      }" @click="typeClick(index, item.typeId)">
+        <img :src="loadingImg(item?.iconUrl)" /></span>
     </div>
     <div class="right">
       <img src="@/assets/icons/Button_Search_.svg" alt="" class="search" />
@@ -25,12 +19,7 @@
         <div class="sign-up" @click="login(false)">SIGN UP</div>
       </div>
       <div class="logined" v-else>
-        <img
-          src="@/assets/icons/Button_User_Streaming.svg"
-          alt=""
-          class="live"
-          @click="handleLiveClick"
-        />
+        <img src="@/assets/icons/Button_User_Streaming.svg" alt="" class="live" @click="handleLiveClick" />
         <img src="@/assets/icons/Button_User_Upload.svg" alt="" class="upload" />
         <img src="@/assets/icons/Button_User_Notice.svg" alt="" class="notice" />
         <img :src="loginstore.userData.portrait" alt="" class="avatar" ref="avatar" />
@@ -196,14 +185,17 @@ const typeClick = (index: number, typeId: number) => {
     width: 400px;
     height: var(--header-height);
     line-height: var(--header-height);
+
     img {
       margin-right: 20px;
       height: 15px;
     }
+
     img .search {
       width: 16px;
       height: 16px;
     }
+
     img.avatar {
       width: 24px;
       height: 24px;
@@ -213,11 +205,13 @@ const typeClick = (index: number, typeId: number) => {
     .before-login {
       font-size: 14px;
       font-weight: bold;
+
       .sign-in {
         color: #fff;
         margin-right: 20px;
         cursor: pointer;
       }
+
       .sign-up {
         color: #000;
         border-radius: 9px;
@@ -240,7 +234,8 @@ const typeClick = (index: number, typeId: number) => {
         border-radius: 10px;
         top: 40px;
         right: -0px;
-        & > li {
+
+        &>li {
           text-align: center;
           cursor: pointer;
         }
@@ -262,6 +257,7 @@ const typeClick = (index: number, typeId: number) => {
     margin-left: var(--middle-margin-l);
     margin-right: var(--middle-margin-r);
     padding-left: 108px;
+
     .sorts {
       /* Game */
       width: 79px;
