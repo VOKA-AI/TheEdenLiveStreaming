@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "secure.ignored",
+      "type": "com.live.config.IgnoreUrlsConfig",
+      "sourceType": "com.live.config.IgnoreUrlsConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "secure.ignored.urls",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.live.config.IgnoreUrlsConfig"
+    }
+  ],
+  "hints": []
+}
