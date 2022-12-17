@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.live.mapper.LiveAccountMapper">
+
+    <select id="getAllRooms"  resultType="com.live.vo.LiveSquareVo">
+        select
+            user.id userId,
+            user.portrait userPortraitUrl,
+            user.nickname userName,
+
+            account.id roomId,
+            account.live_path livePath,
+
+            info.id infoId,
+            info.title title,
+            info.introduction introduction
+        from live_account account
+            inner  join user  on account.user_id = user.id
+            inner join live_info info on user.id = info.user_id
+        where
+            account.state = 1 and info.is_deleted = 0
+    </select>
+
+    <select id="getRoomsByTypeId" resultType="com.live.vo.LiveSquareVo" parameterType="Long">
+        select
+            user.id userId,
+            user.portrait userPortraitUrl,
+            user.nickname userName,
+
+            account.id roomId,
+            account.live_path livePath,
+
+            info.id infoId,
+            info.title title,
+            info.introduction introduction
+        from live_account account
+                 inner  join user  on account.user_id = user.id
+                 inner join live_info info on user.id = info.user_id
+        where
+            account.state = 1 and info.is_deleted = 0 and  info.type_id = #{typeId}
+    </select>
+
+</mapper>

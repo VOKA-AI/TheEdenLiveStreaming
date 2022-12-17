@@ -1,0 +1,11 @@
+package com.live.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.live.entry.LiveTag;
+import com.live.entry.LiveType;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface LiveTypeMapper extends BaseMapper<LiveType> {
+
+}
