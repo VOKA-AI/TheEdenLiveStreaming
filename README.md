@@ -1,9 +1,5 @@
 ## Introduction
 
-<div align="center">
-<img src=https://github.com/VOKA-AI/.github/blob/main/assets/TheEdenBack.png width=80% />
-</div>
-
 ***The Eden*** is a decentralized live streaming platform for Web3.0. 
 which focusing on decentralized games and AMA interviews on [ETH](https://ethereum.org/en/) and Polygon network. 
 
@@ -74,3 +70,16 @@ https://user-images.githubusercontent.com/19359257/206367690-ee1ba05c-1a6b-4a89-
 
 Lack of usage scenarios is a bottleneck that restricts the development of NFT.
 Using NFT to generate avatar, used in live streaming and other fields like video chat with friends can promote the development of NFT.
+
+As a Web3.0 platform, ***The Eden*** will issue its own tokens.
+
+
+## Business Model & Token Related
+
+### Business Model
+
+<div align="center">
+  <img src=https://user-images.githubusercontent.com/20713531/206183113-14125208-6b75-44a5-9c35-2ad1a97f7cbb.jpg width=80% align="center"/>
+  <p>Business Model</p>
+</div>
+
