@@ -6,13 +6,9 @@ isLogin();
 
 <template>
   <header-vue></header-vue>
-  <!-- <login-vue></login-vue> -->
-
   <div class="main-wr">
     <router-view class="left" name="left"></router-view>
     <router-view class="main"></router-view>
-    <router-view class="right" name="right"></router-view>
-    <!-- <div class="right"></div> -->
   </div>
 </template>
 

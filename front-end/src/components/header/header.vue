@@ -7,30 +7,20 @@
       <img src="@/assets/icons/Button_User_Notice.svg" alt="" />
     </div>
     <div class="middle">
-      <span
-        class="sorts"
-        v-for="(item, index) in allType"
-        :class="{
-          active: liveStore.liveTypeId === index + 1 && route.name === 'category',
-        }"
-        @click="typeClick(index, item.typeId)"
-      >
-        <img :src="loadingImg(item?.iconUrl)"
-      /></span>
+      <span class="sorts" v-for="(item, index) in allType" :class="{
+        active: liveStore.liveTypeId === index + 1 && route.name === 'category',
+      }" @click="typeClick(index, item.typeId)">
+        <img :src="loadingImg(item?.iconUrl)" /></span>
     </div>
     <div class="right">
       <img src="@/assets/icons/Button_Search_.svg" alt="" class="search" />
       <div class="before-login" v-if="!loginstore.isLogin">
+        <img src="@/assets/icons/metamask-fox.svg" @click="MetaLogin" />
         <span class="sign-in" @click="login(true)"> SIGN IN</span>
         <div class="sign-up" @click="login(false)">SIGN UP</div>
       </div>
       <div class="logined" v-else>
-        <img
-          src="@/assets/icons/Button_User_Streaming.svg"
-          alt=""
-          class="live"
-          @click="handleLiveClick"
-        />
+        <img src="@/assets/icons/Button_User_Streaming.svg" alt="" class="live" @click="handleLiveClick" />
         <img src="@/assets/icons/Button_User_Upload.svg" alt="" class="upload" />
         <img src="@/assets/icons/Button_User_Notice.svg" alt="" class="notice" />
         <img :src="loginstore.userData.portrait" alt="" class="avatar" ref="avatar" />
@@ -57,6 +47,8 @@ import { reqGetAllType } from "@/request/header";
 import { loadingImg } from "@/utils/loadingImg";
 import Configure from "@/views/configure/index.vue";
 import Login from "@/views/login/index.vue";
+import MetaMaskOnboarding from "@metamask/onboarding";
+import { ElMessage, type FormInstance } from "element-plus";
 
 const router = useRouter();
 const route = useRoute();
@@ -77,10 +69,45 @@ const avatar = ref();
 
 const dropdownUserMenu = ref(false);
 
+const onboarding = new MetaMaskOnboarding();
+    const { ethereum } = window as any;
+
 // 点击登录、注册
 const login = (flag: boolean) => {
   loginstore.changeShowLoginStatus(true);
   loginstore.changeSignUpOrInStatus(flag);
+};
+
+//Created check function to see if the MetaMask extension is installed
+const isMetaMaskInstalled = () => {
+  //Have to check the ethereum binding on the window object to see if it's installed
+  return Boolean(ethereum && ethereum.isMetaMask);
+};
+
+const MetaLogin = async () => {
+  //Now we check to see if MetaMask is installed
+  if (!isMetaMaskInstalled()) {
+    //If it isn't installed we ask the user to click to install it
+    ElMessage.info("Install MetaMask!");
+    onboarding.startOnboarding();
+  } else {
+    try {
+      // Will open the MetaMask UI
+      await ethereum.request({ method: "eth_requestAccounts" });
+      //we use eth_accounts because it returns a list of addresses owned by us.
+      const accounts: string[] = await ethereum.request({
+        method: "eth_accounts",
+      });
+      ElMessage.success("Get Wallet Address Successfully!");
+      loginstore.changeShowLoginStatus(false);
+      loginstore.isLogin = true;
+      if (accounts.length > 0) {
+        console.log(accounts);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 };
 
 const logout = () => {
@@ -196,14 +223,17 @@ const typeClick = (index: number, typeId: number) => {
     width: 400px;
     height: var(--header-height);
     line-height: var(--header-height);
+
     img {
       margin-right: 20px;
       height: 15px;
     }
+
     img .search {
       width: 16px;
       height: 16px;
     }
+
     img.avatar {
       width: 24px;
       height: 24px;
@@ -213,11 +243,13 @@ const typeClick = (index: number, typeId: number) => {
     .before-login {
       font-size: 14px;
       font-weight: bold;
+
       .sign-in {
         color: #fff;
         margin-right: 20px;
         cursor: pointer;
       }
+
       .sign-up {
         color: #000;
         border-radius: 9px;
@@ -240,7 +272,8 @@ const typeClick = (index: number, typeId: number) => {
         border-radius: 10px;
         top: 40px;
         right: -0px;
-        & > li {
+
+        &>li {
           text-align: center;
           cursor: pointer;
         }
@@ -262,6 +295,7 @@ const typeClick = (index: number, typeId: number) => {
     margin-left: var(--middle-margin-l);
     margin-right: var(--middle-margin-r);
     padding-left: 108px;
+
     .sorts {
       /* Game */
       width: 79px;

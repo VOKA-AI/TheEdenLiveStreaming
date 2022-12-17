@@ -45,6 +45,8 @@ export default defineConfig({
       },
     },
   },
+  test: {
+  },
   server: {
     // proxy: { //server 开启， 生产模式
     //   '/api': {
