@@ -6,17 +6,14 @@ import com.live.models.AdminUserDetails;
 import com.live.services.IUserService;
 import com.live.utils.JwtTokenUtil;
 import com.live.entry.User;
-import exception.Asserts;
+import com.live.exception.ApiException;
+import com.live.exception.Asserts;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import com.live.mapper.UserMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -65,6 +62,7 @@ public class IUsersServiceImpl extends ServiceImpl<UserMapper,User> implements I
         user.setNickname(user.getName());//默认昵称为账号
         String encodePassword = passwordEncoder.encode(user.getPwd());//密码加密
         user.setPwd(encodePassword);
+        user.setPortrait("https://s3.ap-east-1.amazonaws.com/srs-live-web-storage-hk/portrait/1668511789045-default.png");
         return save(user);
     }
 
@@ -76,22 +74,17 @@ public class IUsersServiceImpl extends ServiceImpl<UserMapper,User> implements I
      * @return
      */
     @Override
-    public String login(String username, String password) {
+    public String login(String username, String password) throws ApiException {
         String token = null;
 
-        try {
             UserDetails userDetails = loadUserByUsername(username);
 
             //验证密码
             if(!passwordEncoder.matches(password,userDetails.getPassword())){
                 Asserts.fail("密码不正确");
             }
-
             token = jwtTokenUtil.generateToken(userDetails);
 
-        } catch (AuthenticationException e){
-            LOGGER.warn("登录异常: {}" + e.getMessage());
-        }
 
         return token;
     }
@@ -103,6 +96,7 @@ public class IUsersServiceImpl extends ServiceImpl<UserMapper,User> implements I
 
     @Override
     public UserDetails loadUserByUsername(String username) {
+
         User admin = getAdminByUsername(username);
         if(admin  != null){
             return new AdminUserDetails(admin);
@@ -123,6 +117,17 @@ public class IUsersServiceImpl extends ServiceImpl<UserMapper,User> implements I
     public Long getCurrentUserId() {
 //        return getCurrentLoginUser().getId();
         return 0l;
+    }
+
+    @Override
+    public String getUserNameById(Long id) {
+        System.out.println("-------------------userId---------------------" + id);
+        User user = baseMapper.selectById(id);
+        if(user == null){
+            return null;
+        }
+
+        return user.getName();
     }
 
 }

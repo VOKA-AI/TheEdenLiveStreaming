@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.live.mapper.LiveRecordingMapper">
+
+    <select id="getRecordingByUserId" resultType="com.live.vo.LiveRecordingVo" parameterType="Long">
+        select
+            portrait userPortraitUrl,
+            name userName,
+            info_id infoId,
+            title title,
+            introduction introduction,
+            live_start_time startTime,
+            live_end_time endTime ,
+            recording.cover_url coverUrl
+        from  live_recording recording left join live_info info on info.id = recording.info_id
+                left join  user on user.id = info.user_id
+        where user.id = #{userId}
+    </select>
+
+
+
+</mapper>

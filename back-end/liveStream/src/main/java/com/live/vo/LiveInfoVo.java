@@ -11,5 +11,5 @@ public class LiveInfoVo {
     private String title;
     private String introduction;
     private Integer typeId;
-    private List<String> tag;
+    private List<String> tags;
 }

@@ -49,6 +49,7 @@ spring:
 
 
   mail:
+    port: 587
     host: smtp.qq.com
     # 发送邮件的邮箱
     username: 1489782902@qq.com
@@ -59,3 +60,11 @@ spring:
       { from: '1489782902@qq.com' }
 
 
+amazon:
+  aws:
+    access-key-id: AKIAYOLFTFJNKYCLW372
+    access-key-secret: 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
+  s3:
+    default-bucket: srs-live-web-storage-hk
+    region: ap-east-1
+    dirname: portrait

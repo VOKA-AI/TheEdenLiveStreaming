@@ -26,6 +26,7 @@ public class LiveAccount implements Serializable {
   private java.sql.Timestamp updateTime;
   private long isDeleted;
   private long userId;
+  private String coverUrl;
 
 
 }

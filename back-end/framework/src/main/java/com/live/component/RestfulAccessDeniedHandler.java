@@ -3,7 +3,7 @@ package com.live.component;
 import cn.hutool.json.JSONUtil;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
-import webapi.ResultObject;
+import com.live.webapi.ResultObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

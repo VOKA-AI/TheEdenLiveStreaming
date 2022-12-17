@@ -12,6 +12,24 @@
 
     <artifactId>user</artifactId>
 
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.zhibo</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zhibo</groupId>
+            <artifactId>liveStream</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+
+    </dependencies>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

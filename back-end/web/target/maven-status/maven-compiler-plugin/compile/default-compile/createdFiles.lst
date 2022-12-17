@@ -1,4 +1,8 @@
+com\live\web\config\SwaggerConfig.class
 com\live\web\controller\LiveController.class
 com\live\web\controller\LiveCallbackController.class
 com\live\web\controller\UserController.class
+com\live\web\controller\FriendShipController.class
+com\live\web\controller\RestS3Controller.class
 com\live\web\WebApplication.class
+com\live\web\config\MybatisPlusConfig.class

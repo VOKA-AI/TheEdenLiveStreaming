@@ -3,7 +3,7 @@ package com.live.component;
 import cn.hutool.json.JSONUtil;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import webapi.ResultObject;
+import com.live.webapi.ResultObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
