@@ -2,15 +2,16 @@ package com.live.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.live.entry.LiveAccount;
 import com.live.entry.LiveInfo;
 import com.live.entry.LiveTag;
-import com.live.mapper.LiveAccountMapper;
+import com.live.entry.LiveType;
 import com.live.mapper.LiveInfoMapper;
 import com.live.service.LiveInfoService;
+import com.live.vo.LiveInfoShowVo;
 import com.live.vo.LiveInfoVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.live.webapi.ResultObject;
 
 import java.util.List;
 
@@ -19,6 +20,8 @@ public class LiveInfoServiceImpl extends ServiceImpl<LiveInfoMapper, LiveInfo> i
 
     @Autowired
     private LiveTagServiceImpl liveTagService;
+    @Autowired
+    private LiveTypeServiceImpl liveTypeService;
 
     @Override
     public Boolean saveLiveRoomInfo(LiveInfoVo liveInfoVo, Long user_id) {
@@ -42,19 +45,59 @@ public class LiveInfoServiceImpl extends ServiceImpl<LiveInfoMapper, LiveInfo> i
         liveInfo.setIntroduction(liveInfoVo.getIntroduction());
         liveInfo.setUserId(user_id);
         //指定对应type
-        liveInfo.setTypeId(liveInfoVo.getTypeId());
+        if(liveInfoVo.getTypeId() != null){
+            liveInfo.setTypeId(liveInfoVo.getTypeId());
+        }
+
         save(liveInfo);
         //再绑定tag
         long infoId = liveInfo.getId();
-        List<String> list = liveInfoVo.getTag();
+        List<String> list = liveInfoVo.getTags();
 
-        for (int i = 0; i < list.size(); i++) {
-            LiveTag liveTag = new LiveTag();
-            liveTag.setTag(list.get(i));
-            liveTag.setInfoId(infoId);
-            liveTagService.getBaseMapper().insert(liveTag);
+        if(list != null){
+            for (int i = 0; i < list.size(); i++) {
+                LiveTag liveTag = new LiveTag();
+                liveTag.setTag(list.get(i));
+                liveTag.setInfoId(infoId);
+                liveTagService.getBaseMapper().insert(liveTag);
+            }
         }
 
         return true;
     }
+
+    @Override
+    public ResultObject getEditInfo(Long userID) {
+        QueryWrapper<LiveInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("user_id",userID);
+        wrapper.eq("is_deleted",0);
+        LiveInfo liveInfo = baseMapper.selectOne(wrapper);
+
+        if(liveInfo == null){
+            return ResultObject.failed("没有编辑过的信息");
+        }
+
+        QueryWrapper<LiveTag> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("info_id",liveInfo.getId());
+        List<LiveTag> liveTags = liveTagService.getBaseMapper().selectList(queryWrapper);
+
+        LiveType liveType = liveTypeService.getBaseMapper().selectById(liveInfo.getTypeId());
+
+
+
+        LiveInfoShowVo liveInfoShowVo = new LiveInfoShowVo();
+        liveInfoShowVo.setIntroduction(liveInfo.getIntroduction());
+        liveInfoShowVo.setTitle(liveInfo.getTitle());
+        liveInfoShowVo.setTag(liveTags);
+        if(liveType != null){
+            liveInfoShowVo.setType(liveType.getType());
+            liveInfoShowVo.setTypeId(liveType.getId());
+
+        }
+
+
+        return ResultObject.success(liveInfoShowVo,"获取成功");
+    }
+
+
 }

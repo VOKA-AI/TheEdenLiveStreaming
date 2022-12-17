@@ -12,6 +12,7 @@ public class UserRelationship {
   private long id;
   private long userId;
   private long followingUserId;
+
   private java.sql.Timestamp createTime;
   private java.sql.Timestamp updateTime;
   private long isDeleted;

@@ -15,10 +15,13 @@ public class LiveSquareVo {
 
     private long roomId;
     private String livePath;
+    private long onlineNumber;
+    private String coverUrl;
+    private long typeId;
 
     private long infoId;
     private String title;
     private String introduction;
 
-    private List<LiveTag> tag;
+    private List<LiveTag> tags;
 }

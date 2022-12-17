@@ -6,4 +6,5 @@ import lombok.Data;
 public class LiveTypeVo {
     private String type;
     private long typeId;
+    private String iconUrl;
 }

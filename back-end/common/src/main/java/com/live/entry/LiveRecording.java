@@ -14,6 +14,7 @@ public class LiveRecording {
   private java.sql.Timestamp liveEndTime;
   private java.sql.Timestamp createTime;
   private java.sql.Timestamp updateTime;
+  private String coverUrl;
   private long isDeleted;
   private long infoId;
 

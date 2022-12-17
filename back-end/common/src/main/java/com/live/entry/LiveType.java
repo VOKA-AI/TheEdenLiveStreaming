@@ -11,6 +11,7 @@ public class LiveType {
   @TableId(type = IdType.AUTO)
   private long id;
   private String type;
+  private String iconUrl;
   private java.sql.Timestamp createTime;
   private java.sql.Timestamp updateTime;
   private long isDeleted;

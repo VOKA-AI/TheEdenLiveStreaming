@@ -11,7 +11,7 @@ import java.io.IOException;
 @SpringBootApplication()
 @ServletComponentScan
 @ComponentScan(value = "com.live")
-@MapperScan({"com.live","com.live.mapper"})
+@MapperScan({"com.live","com.live.mapper.xml"})
 public class WebApplication {
 
     public static void main(String[] args) throws IOException {

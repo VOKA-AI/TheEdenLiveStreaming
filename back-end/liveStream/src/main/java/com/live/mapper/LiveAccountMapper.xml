@@ -10,6 +10,8 @@
 
             account.id roomId,
             account.live_path livePath,
+            account.online_number onlineNumber,
+            account.cover_url coverUrl,
 
             info.id infoId,
             info.title title,
@@ -19,6 +21,7 @@
             inner join live_info info on user.id = info.user_id
         where
             account.state = 1 and info.is_deleted = 0
+        order by onlineNumber DESC
     </select>
 
     <select id="getRoomsByTypeId" resultType="com.live.vo.LiveSquareVo" parameterType="Long">
@@ -29,6 +32,9 @@
 
             account.id roomId,
             account.live_path livePath,
+            account.online_number onlineNumber,
+            account.cover_url coverUrl,
+
 
             info.id infoId,
             info.title title,
@@ -38,6 +44,53 @@
                  inner join live_info info on user.id = info.user_id
         where
             account.state = 1 and info.is_deleted = 0 and  info.type_id = #{typeId}
+        order by onlineNumber DESC
+    </select>
+
+    <select id="getRoomsOnTop" resultType="com.live.vo.LiveSquareVo" parameterType="Long">
+        select
+            user.id userId,
+            user.portrait userPortraitUrl,
+            user.nickname userName,
+
+            account.id roomId,
+            account.live_path livePath,
+            account.online_number onlineNumber,
+            account.cover_url coverUrl,
+
+            info.id infoId,
+            info.title title,
+            info.introduction introduction
+        from live_account account
+                 inner  join user  on account.user_id = user.id
+                 inner join live_info info on user.id = info.user_id
+        where
+            account.state = 1 and info.is_deleted = 0
+        order by onlineNumber DESC
+        LIMIT 4;
+    </select>
+
+
+    <select id="getRoomByUserID" resultType="com.live.vo.LiveSquareVo" parameterType="Long">
+        select
+            user.id userId,
+            user.portrait userPortraitUrl,
+            user.nickname userName,
+
+            account.id roomId,
+            account.live_path livePath,
+            account.online_number onlineNumber,
+            account.cover_url coverUrl,
+
+            info.id infoId,
+            info.title title,
+            info.introduction introduction,
+            info.type_id typeId
+        from live_account account
+                 inner  join user  on account.user_id = user.id
+                 inner join live_info info on user.id = info.user_id
+        where
+             info.is_deleted = 0 and  account.user_id = #{ userId }
     </select>
 
 </mapper>

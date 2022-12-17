@@ -53,5 +53,11 @@ public interface IUserService extends IService<User> {
      */
     Long getCurrentUserId();
 
+    /**
+     * 根据用户id获取用户名
+      * @param id
+     * @return
+     */
+    String getUserNameById(Long id);
 
 }

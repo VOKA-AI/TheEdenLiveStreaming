@@ -19,7 +19,7 @@ spring:
 
 
 server:
-  port: 8081
+  port: 8082
 
 
 mybatis-plus:
@@ -60,7 +60,16 @@ secure:
       - /users/logout
       - /minio/upload
       - /live_callback/**
-
+      - /storage/**
+      - /live/get_all_types
+      - /live/get_all_online_rooms
+      - /live/get_room_by_type
+      - /live/get_rooms_on_top
+      - /live//get_recording
+      - /live/get_room_state
+      - /friendship/get_followed_counts
+      - /live/get_room_by_username
+      - /users/get_user_info_by_id_or_name
 
 
 # 登录认证 token filter
@@ -69,3 +78,7 @@ jwt:
   secret: codingmore-admin-secret #JWT加解密使用的密钥
   expiration: 604800 #JWT的超期限时间(60*60*24*7)
   tokenHead: 'Bearer '  #JWT负载中拿到开头
+
+
+recording:
+  minTime: 5 #直播历史最短时间，默认5分钟
