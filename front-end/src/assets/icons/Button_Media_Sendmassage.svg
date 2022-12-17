@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.6;
+      }
+
+      .cls-2 {
+        fill: #0e0e10;
+      }
+
+      .cls-3 {
+        fill: gray;
+      }
+    </style>
+  </defs>
+  <g id="Button_Media_Sendmassage" class="cls-1" transform="translate(-1432 -968)">
+    <rect id="矩形_44" data-name="矩形 44" class="cls-2" width="40" height="40" rx="8" transform="translate(1432 968)"/>
+    <g id="s_sendforcomments_18" transform="translate(1437.971 974.575)">
+      <path id="路径_57" data-name="路径 57" class="cls-3" d="M.746,10.967a.594.594,0,0,0-.108,1.11l5.454,2.711L26.671,2.925ZM8.682,16.03,17.8,20.585a.6.6,0,0,0,.808-.276l9.152-16.3ZM6.426,17.694v5.7a.53.53,0,0,0,.877.4l4.039-3.365Z" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>

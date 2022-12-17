@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#40e3ff"/>
+      <stop offset="1" stop-color="#f548f8"/>
+    </linearGradient>
+  </defs>
+  <g id="Button_checkbox_enabled" transform="translate(-553 -761)">
+    <rect id="矩形_59" data-name="矩形 59" class="cls-1" width="25" height="25" rx="4" transform="translate(553 761)"/>
+    <path id="联合_2" data-name="联合 2" class="cls-2" d="M-9944.342-1082.687l-1.416-1.413h0l-4.244-4.242,1.416-1.416,4.242,4.244,8.486-8.486,1.413,1.416-8.485,8.485Z" transform="translate(10507.723 1861.843)"/>
+  </g>
+</svg>

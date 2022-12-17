@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76" height="24" viewBox="0 0 76 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect id="Button_Signup_White" class="cls-1" width="76" height="24" rx="9"/>
+</svg>

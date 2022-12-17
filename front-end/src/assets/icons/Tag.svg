@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="15" viewBox="0 0 46 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: gray;
+        opacity: 0.9;
+      }
+    </style>
+  </defs>
+  <rect id="Tag" class="cls-1" width="46" height="15" rx="7.5"/>
+</svg>

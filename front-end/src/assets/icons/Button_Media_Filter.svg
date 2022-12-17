@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="15" viewBox="0 0 72 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: gray;
+      }
+    </style>
+  </defs>
+  <rect id="Button_Media_Filter" class="cls-1" width="72" height="15" rx="4"/>
+</svg>

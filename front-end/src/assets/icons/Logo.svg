@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="107" height="21" viewBox="0 0 107 21">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        font-size: 20px;
+        font-family: Skygraze;
+      }
+    </style>
+  </defs>
+  <text id="Logo" class="cls-1" transform="translate(0 17)"><tspan x="0" y="0">The Eden</tspan></text>
+</svg>

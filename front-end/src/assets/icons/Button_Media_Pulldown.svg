@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="6" height="4.885" viewBox="0 0 6 4.885">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="Button_Media_Pulldown" class="cls-1" d="M7.374,2,4.989.251A1.25,1.25,0,0,0,3,1.258v3.5A1.249,1.249,0,0,0,4.989,5.766L7.374,4.017A1.25,1.25,0,0,0,7.374,2Z" transform="translate(6.009 -3) rotate(90)"/>
+</svg>

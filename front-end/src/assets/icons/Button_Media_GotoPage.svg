@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="26" viewBox="0 0 40 26">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: gray;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Button_Media_GotoPage" class="cls-1">
+    <rect class="cls-2" width="40" height="26" rx="8"/>
+    <rect class="cls-3" x="0.5" y="0.5" width="39" height="25" rx="7.5"/>
+  </g>
+</svg>

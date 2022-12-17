@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.038" height="16.038" viewBox="0 0 16.038 16.038">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="Button_Search_" class="cls-1" d="M15.707,14.293,10.885,9.471a6.019,6.019,0,1,0-1.414,1.414l4.822,4.822a1,1,0,1,0,1.414-1.414ZM6,10a4,4,0,1,1,4-4A4,4,0,0,1,6,10Z" transform="translate(0.038 0.038)"/>
+</svg>

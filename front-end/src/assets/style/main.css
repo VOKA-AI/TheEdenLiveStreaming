@@ -1,0 +1,46 @@
+body {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  /* min-height: 200vh; */
+}
+
+div {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --header-height: 38px;
+  --chat-room-width: 400px;
+  --btn-bcc: rgba(102, 51, 153, 0.914);
+  --body-padding-t: 10px;
+  --body-padding-l: 9px;
+  --middle-margin-l: 12px;
+  --middle-margin-r: 10px;
+  --left-padding-l: 9px;
+  --left-padding-r: 6px;
+  --hot-aside-width: 180px;
+}
+
+.clear-fix::before {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+html,
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+/* @media screen and (min-width:1500px) and (max-width:2200px) {
+  body {
+    background-color: aqua;
+  }
+} */

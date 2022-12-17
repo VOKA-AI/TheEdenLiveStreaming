@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35.355" height="35.355" viewBox="0 0 35.355 35.355">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="Button_WindowClose" class="cls-1" d="M-9939.168-1069v-10.833H-9950v-3.334h10.832V-1094h3.336v10.833H-9925v3.334h-10.832V-1069Z" transform="translate(6279.814 7809.288) rotate(45)"/>
+</svg>

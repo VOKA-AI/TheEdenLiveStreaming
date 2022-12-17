@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="99" height="24" viewBox="0 0 99 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #494949;
+      }
+    </style>
+  </defs>
+  <rect id="Button_Tagbox" class="cls-1" width="99" height="24" rx="9"/>
+</svg>

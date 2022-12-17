@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+        stroke: #18181b;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Button_User_Notice_Redpoint" class="cls-1">
+    <circle class="cls-2" cx="5" cy="5" r="5"/>
+    <circle class="cls-3" cx="5" cy="5" r="4.5"/>
+  </g>
+</svg>

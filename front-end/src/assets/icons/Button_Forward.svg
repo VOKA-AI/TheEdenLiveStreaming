@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #00fff7;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Button_Forward" transform="translate(-1078 -547)">
+    <g id="页面-1" transform="translate(1083.755 552.043)">
+      <g id="_2壁纸侧边栏选择分类" data-name="2壁纸侧边栏选择分类" transform="translate(4.245 1.957)">
+        <g id="编组-3" transform="translate(0 0)">
+          <g id="编组-6" transform="translate(0)">
+            <g id="右" transform="translate(0)">
+              <g id="右-_1_" data-name="右-(1)" transform="translate(0)">
+                <path id="路径" class="cls-1" d="M5.526,1.957,4.245,3.373,9.339,7.957,4.245,12.542l1.282,1.415,5.879-5.292c.083-.076.23-.215.444-.423l.294-.285-.691-.665Z" transform="translate(-4.245 -1.957)"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="椭圆_6" data-name="椭圆 6" class="cls-2" transform="translate(1078 547)">
+      <circle class="cls-3" cx="13" cy="13" r="13"/>
+      <circle class="cls-4" cx="13" cy="13" r="12.5"/>
+    </g>
+  </g>
+</svg>

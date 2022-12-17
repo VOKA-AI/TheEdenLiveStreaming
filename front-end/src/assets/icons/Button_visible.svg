@@ -1,0 +1,24 @@
+<svg id="Button_visible" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9ca2a9;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="新建汇报备份" transform="translate(-18 -586)">
+    <g id="编组-2备份" transform="translate(0 564)">
+      <g id="编组-4" transform="translate(16 20)">
+        <g id="添加汇报_icon_移除" data-name="添加汇报/icon/移除" transform="translate(2 2)">
+          <circle id="形状结合" class="cls-1" cx="10" cy="10" r="10"/>
+          <path id="形状结合-2" data-name="形状结合" class="cls-2" d="M10,6c3.3,0,6,3.216,6,4s-2.7,4-6,4-6-3.216-6-4S6.7,6,10,6Zm0,2a2,2,0,1,0,2,2A2,2,0,0,0,10,8Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
