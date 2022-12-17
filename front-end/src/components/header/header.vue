@@ -15,6 +15,7 @@
     <div class="right">
       <img src="@/assets/icons/Button_Search_.svg" alt="" class="search" />
       <div class="before-login" v-if="!loginstore.isLogin">
+        <img src="@/assets/icons/metamask-fox.svg" @click="MetaLogin" />
         <span class="sign-in" @click="login(true)"> SIGN IN</span>
         <div class="sign-up" @click="login(false)">SIGN UP</div>
       </div>
@@ -46,6 +47,8 @@ import { reqGetAllType } from "@/request/header";
 import { loadingImg } from "@/utils/loadingImg";
 import Configure from "@/views/configure/index.vue";
 import Login from "@/views/login/index.vue";
+import MetaMaskOnboarding from "@metamask/onboarding";
+import { ElMessage, type FormInstance } from "element-plus";
 
 const router = useRouter();
 const route = useRoute();
@@ -66,10 +69,45 @@ const avatar = ref();
 
 const dropdownUserMenu = ref(false);
 
+const onboarding = new MetaMaskOnboarding();
+    const { ethereum } = window as any;
+
 // 点击登录、注册
 const login = (flag: boolean) => {
   loginstore.changeShowLoginStatus(true);
   loginstore.changeSignUpOrInStatus(flag);
+};
+
+//Created check function to see if the MetaMask extension is installed
+const isMetaMaskInstalled = () => {
+  //Have to check the ethereum binding on the window object to see if it's installed
+  return Boolean(ethereum && ethereum.isMetaMask);
+};
+
+const MetaLogin = async () => {
+  //Now we check to see if MetaMask is installed
+  if (!isMetaMaskInstalled()) {
+    //If it isn't installed we ask the user to click to install it
+    ElMessage.info("Install MetaMask!");
+    onboarding.startOnboarding();
+  } else {
+    try {
+      // Will open the MetaMask UI
+      await ethereum.request({ method: "eth_requestAccounts" });
+      //we use eth_accounts because it returns a list of addresses owned by us.
+      const accounts: string[] = await ethereum.request({
+        method: "eth_accounts",
+      });
+      ElMessage.success("Get Wallet Address Successfully!");
+      loginstore.changeShowLoginStatus(false);
+      loginstore.isLogin = true;
+      if (accounts.length > 0) {
+        console.log(accounts);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 };
 
 const logout = () => {
