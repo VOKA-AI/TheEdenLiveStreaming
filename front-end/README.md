@@ -1,19 +1,17 @@
-# live
 
-This template should help get you started developing with Vue 3 in Vite.
-
-
+项目采用[vite](https://cn.vitejs.dev/guide/) + vue + ts的结构
+利用[pinia](https://pinia.vuejs.org/)做状态管理
 
 
 ## Project Setup
 
-```sh
+```shell
 yarn
 ```
 
 ### Compile and Hot-Reload for Development
 
-```sh
+```shell
 yarn dev
 ```
 

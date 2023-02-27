@@ -14,7 +14,6 @@ front-end/coverage
 front-end/*.local
 front-end/cypress/videos/
 front-end/cypress/screenshots/
-
 # Editor directories and files
 front-end/.vscode/*
 front-end/!.vscode/extensions.json

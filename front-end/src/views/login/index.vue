@@ -41,6 +41,11 @@ import SignUpVue from "./signUp/SignUp.vue";
 
 // login 的 vuex
 const loginstore = useLoginStore();
+/*
+ * vuex完成跨文件的事件触发
+ * 优点是比较方便
+ * 缺点是难以维护和管理
+ */
 </script>
 
 <style scoped lang="scss">
