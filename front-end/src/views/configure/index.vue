@@ -5,7 +5,7 @@
     <div class="configure">
       <el-card>
         <h2>
-          <span>编辑您的直播信息</span>
+          <span>Edit Information For Your Streaming </span>
           <span @click="liveStorse.setShowConfig()"
             ><img src="@/assets/icons/Button_TagClose.svg" alt=""
           /></span>
@@ -18,13 +18,17 @@
           ref="formRef"
           hide-required-asterisk
         >
-          <el-form-item label="直播标题" prop="title" class="item">
+          <el-form-item label="Streaming Title" prop="title" class="item">
             <el-input v-model="formVal.title" />
           </el-form-item>
-          <el-form-item label="直播介绍" prop="introduction" class="item">
+          <el-form-item
+            label="Streaming Introduction"
+            prop="introduction"
+            class="item"
+          >
             <el-input v-model="formVal.introduction" />
           </el-form-item>
-          <el-form-item label="类别" prop="type" class="item">
+          <el-form-item label="Sort" prop="type" class="item">
             <el-select
               v-model="formVal.type"
               class="m-2"
@@ -40,9 +44,9 @@
               />
             </el-select>
           </el-form-item>
-          <el-form-item label="标签" class="item tag">
-            <el-input v-model="formVal.tag" />
-            <el-button @click="addTag">添加标记</el-button>
+          <el-form-item label="Tags" class="item tag">
+            <el-input v-model="formVal.tag" @keyup.enter.native="addTag" />
+            <el-button @click="addTag">Add</el-button>
           </el-form-item>
           <p class="tagwr">
             <span v-for="(item, index) in formVal.tags" class="taginfo">
@@ -50,24 +54,24 @@
               <el-icon @click="delTag(index)"><Close /></el-icon>
             </span>
           </p>
-          <el-form-item label="直播间封面" class="item uploaditem">
+          <el-form-item label="Streaming Posters" class="item uploaditem">
             <Upload></Upload>
           </el-form-item>
           <el-form-item class="btnwr item">
-            <el-button>Cancel</el-button>
+            <el-button @click="handleCancel">Cancel</el-button>
             <el-button @click="handleEmit(formRef)" class="colorbgc"
               >Done</el-button
             >
           </el-form-item>
           <!-- 分割线 -->
           <el-divider border-style="dashed" />
-          <el-form-item label="推流服务器地址" class="item key">
+          <el-form-item label="Streaming Url" class="item key">
             <el-input id="address" v-model="serverAddress" :readonly="true" />
-            <el-button @click="handleCopy('#address')" class="colorbgc"
-              >复制</el-button
-            >
+            <el-button @click="handleCopy('#address')" class="colorbgc">
+              Copy
+            </el-button>
           </el-form-item>
-          <el-form-item label="推流直播秘钥" class="item key">
+          <el-form-item label="Special Key" class="item key">
             <el-input
               v-model="keyWord"
               type="password"
@@ -76,16 +80,14 @@
             />
             <div>
               <el-button @click="handleCopyKeyword" class="colorbgc"
-                >复制</el-button
+                >Copy</el-button
               >
-              <el-button @click="handleReset">重置</el-button>
+              <el-button @click="handleReset">Reset</el-button>
             </div>
           </el-form-item>
         </el-form>
         <div class="center">
-          <el-button class="colorbgc" @click="handleStartLive"
-            >一键开播</el-button
-          >
+          <el-button class="colorbgc" @click="handleStartLive">Start</el-button>
         </div>
       </el-card>
     </div>
@@ -94,7 +96,7 @@
 
 <script setup lang="ts">
 import Upload from "@/components/upload/upload.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, inject } from "vue";
 import { Close } from "@element-plus/icons-vue";
 import type { FormInstance } from "element-plus";
 import { postCreateRoom } from "@/request/config";
@@ -104,14 +106,33 @@ import { useConfigureRoom } from "./composable/useConfigureRoom";
 import { useStartLive } from "./composable/useStartLive";
 import { useSelect } from "./composable/useSelect";
 import { useKeyword } from "./composable/useKeyword";
+import { useRouter } from "vue-router";
 const liveStorse = useLiveStore();
-const serverAddress = ref("rtmp://18.163.79.28/live");
+const router = useRouter();
+const serverAddress = ref("rtmp://" + inject("srsHost") +  "/live");
 const { handleCopy, handleCopyKeyword } = useCopy();
-const { formVal, rules, addTag, delTag, handleEmit } = useConfigureRoom();
-const { handleStartLive } = useStartLive();
+const { formVal, rules, addTag, delTag, emitForm } = useConfigureRoom();
+const { startLive } = useStartLive();
 const { options, handleSelectChange } = useSelect();
 const { keyWord, handleReset } = useKeyword();
 let value = ref();
+let handleStartLive = () => {
+  const promise = startLive();
+  promise.then(() => {
+    router.push("/");
+  });
+  liveStorse.setShowConfig();
+};
+const handleEmit = (formRef: FormInstance | undefined) => {
+  const promise = emitForm(formRef);
+  promise.then(() => {
+    router.push("/");
+    liveStorse.setShowConfig();
+  });
+};
+const handleCancel = () => {
+  liveStorse.setShowConfig();
+};
 onMounted(async () => {
   const { data: createRoomReq } = await postCreateRoom();
 });
@@ -263,9 +284,11 @@ const formRef = ref<FormInstance>();
   margin-bottom: 20px;
 }
 .taginfo {
+  display: inline-block;
   height: 24px;
   line-height: 24px;
   padding: 4px;
+  margin-bottom: 10px;
   margin-right: 4px;
   border-radius: 9px;
   opacity: 1;

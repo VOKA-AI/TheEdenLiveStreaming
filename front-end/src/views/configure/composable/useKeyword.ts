@@ -7,14 +7,19 @@ export const useKeyword = () => {
         const keyWordData = (await getKeyword()).data.result;
         keyWord.value = keyWordData.privateKey;
         const copyVal: HTMLInputElement | null = document.querySelector("#keyWord");
+        if(copyVal!==null){
+            copyVal!.setAttribute("readonly", "readonly");
+        }
     })
-    nextTick(() => {
-        const copyVal: HTMLInputElement | null = document.querySelector("#keyWord");
-        copyVal!.setAttribute("readonly", "readonly");
-      });
+    // nextTick(() => {
+    //     const copyVal: HTMLInputElement | null = document.querySelector("#keyWord");
+    //     if(copyVal!==null){
+    //         copyVal!.setAttribute("readonly", "readonly");
+    //     }
+    //   });
       const handleReset = () => {
         //重置秘钥的时候使用
-        console.log("reset");
+        //console.log("reset");
     };
     return { keyWord,handleReset }
 }

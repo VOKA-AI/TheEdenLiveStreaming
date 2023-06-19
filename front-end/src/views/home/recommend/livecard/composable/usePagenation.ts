@@ -6,6 +6,7 @@ import { reqGetOnlinRooms, reqGetAllOnlinRoomsFollowed } from "@/request/home";
 
 import IMG4 from "@/assets/img/4.jpg";
 import IMG2 from "@/assets/img/2.jpg";
+import { ElMessage } from "element-plus";
 
 const getReqType = (type: 0 | 1) => {
   switch (type) {
@@ -132,8 +133,13 @@ export const usePagenation = (type: 0 | 1) => {
       pageConfig.currentPage++;
     }
     const { data } = await reqFn(pageConfig.currentPage, pageConfig.pagesize);
+    //console.log("refreshOrPush");
+    // console.log(data);
+
     if (data.code === 0) {
-      const result: LiveCard[] = data.result.records;
+      // console.log(data);
+
+      const result = data.result.records;
       if (flag && type === 1 && result.length === 0) {
         isShow.value = false;
       }
@@ -141,6 +147,8 @@ export const usePagenation = (type: 0 | 1) => {
         pageConfig.isLast = true;
       }
       liveCard.value.push(...result);
+    } else {
+      ElMessage.warning(data.message);
     }
   };
 
@@ -148,6 +156,8 @@ export const usePagenation = (type: 0 | 1) => {
     if (pageConfig.currentPage > 1) pageConfig.currentPage--;
   };
   const toRight = () => {
+    //console.log("toRight");
+
     if (pageConfig.currentPage >= pageConfig.totalPage) {
       if (!pageConfig.isLast) {
         refreshOrPush(false);

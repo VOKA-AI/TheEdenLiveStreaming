@@ -1,0 +1,35 @@
+<svg id="button_browse_next" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2, .cls-5 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #292929;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#40e3ff"/>
+      <stop offset="1" stop-color="#f548f8"/>
+    </linearGradient>
+  </defs>
+  <circle id="椭圆_31" data-name="椭圆 31" class="cls-1" cx="13" cy="13" r="13"/>
+  <g id="椭圆_6" data-name="椭圆 6" class="cls-2">
+    <circle class="cls-4" cx="13" cy="13" r="13"/>
+    <circle class="cls-5" cx="13" cy="13" r="12.5"/>
+  </g>
+  <path id="Arrow_Round" class="cls-3" d="M5.351,2.351a1.2,1.2,0,0,1,1.531-.139l.166.139,4.8,4.8a1.2,1.2,0,0,1,.139,1.531l-.139.166-4.8,4.8a1.2,1.2,0,0,1-1.836-1.531l.139-.166L9.3,8,5.351,4.049a1.2,1.2,0,0,1-.139-1.531Z" transform="translate(5.4 5)"/>
+</svg>

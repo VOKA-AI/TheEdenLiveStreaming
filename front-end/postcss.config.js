@@ -15,7 +15,7 @@ module.exports = {
       rootValue: 192,
       propList: ["*"],
       unitPrecision: 6,
-      selectorBlackList: [".no-rem",".ad"], // 不转
+      selectorBlackList: [".no-rem", ".ad"], // 不转
       mediaQuery: false, // 允许在媒体查询中转换px。
       minPixelValue: 2, // 设置要替换的最小像素值。
       exclude: [/node_modules/i], // 排除 node_modules 文件(node_modules 内文件禁止转换)

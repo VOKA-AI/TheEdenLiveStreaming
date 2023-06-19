@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="7.785" viewBox="0 0 10 7.785">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1" y1="-0.672" x2="0.168" y2="1.707" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00fff7"/>
+      <stop offset="0.678" stop-color="#19389c"/>
+      <stop offset="1" stop-color="#38c9ff"/>
+    </linearGradient>
+  </defs>
+  <g id="icon_board_views" transform="translate(-0.001 -56.735)">
+    <circle id="椭圆_41" data-name="椭圆 41" class="cls-1" cx="1.666" cy="1.666" r="1.666" transform="translate(3.334 58.961)"/>
+    <path id="路径_84" data-name="路径 84" class="cls-1" d="M9.7,59.552A5.516,5.516,0,0,0,5,56.735,5.516,5.516,0,0,0,.306,59.552a2.044,2.044,0,0,0,0,2.15A5.516,5.516,0,0,0,5,64.52,5.516,5.516,0,0,0,9.7,61.7,2.044,2.044,0,0,0,9.7,59.552ZM5,63.126a2.5,2.5,0,1,1,2.5-2.5A2.5,2.5,0,0,1,5,63.126Z"/>
+  </g>
+</svg>

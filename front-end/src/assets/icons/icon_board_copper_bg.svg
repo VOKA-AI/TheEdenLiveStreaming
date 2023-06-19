@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="180" height="30" viewBox="0 0 180 30">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.42;
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffa657"/>
+      <stop offset="0.927" stop-color="#97421d"/>
+      <stop offset="1" stop-color="#b15f15"/>
+    </linearGradient>
+  </defs>
+  <rect id="icon_board_copper_bg" class="cls-1" width="180" height="30"/>
+</svg>

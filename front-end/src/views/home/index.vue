@@ -17,7 +17,6 @@ import Recommend from "./recommend/recommend.vue";
 .square {
   padding-top: var(--header-height);
   box-sizing: border-box;
-  background-color: #000;
   overflow-y: auto;
   height: calc(100vh - var(--header-height));
   -ms-overflow-style: none;
@@ -28,6 +27,7 @@ import Recommend from "./recommend/recommend.vue";
   .footer {
     position: fixed;
     bottom: 0;
+    left: 0;
   }
 }
 </style>

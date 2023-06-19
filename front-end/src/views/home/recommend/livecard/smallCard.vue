@@ -20,7 +20,7 @@
             <MoreFilled />
           </el-icon>
         </p>
-        <p class="spectator">{{ item.spectatorNum }}名观众</p>
+        <p class="spectator">{{ item.spectatorNum }}Watching</p>
         <span class="tag-name">{{ item.tagName }}</span>
       </div>
     </div>
@@ -65,18 +65,18 @@ const recommendCard = ref([
 ]);
 
 const toDetailTag = (item: object) => {
-  console.log(123);
+  //console.log(123);
 };
 const refresh = () => {
-  console.log("refresh");
+  //console.log("refresh");
 };
 
 const toLeft = () => {
-  console.log("refresh");
+  //console.log("refresh");
 };
 
 const toRight = () => {
-  console.log("refresh");
+  //console.log("refresh");
 };
 </script>
 

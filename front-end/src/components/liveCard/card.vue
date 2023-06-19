@@ -62,6 +62,7 @@ const enterLiveRoom = () => {
 
 <style scoped lang="scss">
 .card {
+  margin-bottom: 20px;
   .img {
     margin-bottom: 10px;
     width: 214px;
@@ -74,9 +75,8 @@ const enterLiveRoom = () => {
     font-size: 15px;
     font-size: 15px;
     font-weight: bold;
-    line-height: 15px;
+    // line-height: 15px;
     letter-spacing: 0em;
-
     color: #ffffff;
   }
   .data {

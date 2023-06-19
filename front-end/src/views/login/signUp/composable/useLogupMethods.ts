@@ -31,7 +31,7 @@ export function useLogupMethods(
             userSignupMsg.code
           );
           isDisabled.value = false;
-          console.log(data);
+          // console.log(data);
           if (data.code === 0) {
             loginstore.changeSignUpOrInStatus(true);
           } else {
@@ -41,7 +41,7 @@ export function useLogupMethods(
           }
         }
       } else {
-        console.log("error submit!");
+        //console.log("error submit!");
         return false;
       }
     });
@@ -55,11 +55,11 @@ export function useLogupMethods(
         const args = useEmail.value
           ? userSignupMsg.mail
           : userSignupMsg.phone?.toString();
-        console.log(args);
-        console.log(fn);
+        //console.log(args);
+        //console.log(fn);
 
         const { data } = await fn(args as string);
-        console.log(data);
+        // console.log(data);
         if (data.code === 0) {
           ElMessage.success({
             message: "已发送",
@@ -70,7 +70,7 @@ export function useLogupMethods(
           });
         }
       } else {
-        console.log("error submit!");
+        //console.log("error submit!");
         ElMessage({
           type: "info",
           message: "请完整填写上面信息",

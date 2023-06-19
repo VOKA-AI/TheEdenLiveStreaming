@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="103.994" height="17.474" viewBox="0 0 103.994 17.474">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" y1="0.085" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#40e3ff"/>
+      <stop offset="1" stop-color="#f548f8"/>
+    </linearGradient>
+  </defs>
+  <path id="TheEden_Logo" class="cls-1" d="M94.277,7.279v8.747l-2.917-.97V0l9.72,10.2V1.449h2.914V17.474ZM4.86,4.365H0V1.449H12.634V4.365H7.777V16.026L4.86,17ZM62.2,16.034V7.279h2.916v5.833h5.344a1.463,1.463,0,0,0,1.46-1.46V5.822a1.457,1.457,0,0,0-1.46-1.457H63.176L62.2,1.449h8.26a4.214,4.214,0,0,1,3.091,1.283,4.2,4.2,0,0,1,1.283,3.091v5.83a4.379,4.379,0,0,1-4.373,4.382Zm14.577-.008V7.279H89.417V10.2H79.7v2.916h9.72v2.914Zm-29.155,0V7.279H60.259V10.2h-9.72v2.916h9.72v2.914Zm-18.468,0V7.279H41.792V10.2H32.074v2.916h9.717v2.914Zm-4.86,0V10.2h-6.8v5.83l-2.917-.97V1.449h2.917v5.83h6.8V1.449h2.917V16.026ZM76.78,4.365V1.449H89.417l-.974,2.916Zm-29.155,0V1.449H60.259l-.973,2.916Zm-18.468,0V1.449H41.792l-.97,2.916Z"/>
+</svg>

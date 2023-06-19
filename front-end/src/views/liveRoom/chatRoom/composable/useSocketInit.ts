@@ -24,7 +24,7 @@ export function useSocketInit(props: any) {
   const chatHistory: Ref<AChatMsg[]> = ref([]);
 
   const sendMsglistener = (msg: Array<any>, name: string) => {
-    console.log(123);
+    //console.log(123);
     chatHistory.value.push({
       name: name as string,
       content: msg,
@@ -32,12 +32,11 @@ export function useSocketInit(props: any) {
   };
 
   const listenSendMsg = () => {
-    console.log("listenSendMsg");
+    //console.log("listenSendMsg");
     mainStore.socket?.on("sendMsg", sendMsglistener);
   };
 
   const sendInfoEnterRoom = () => {
-    mainStore.socket?.emit("leaveRoom", props.id);
     enterRoom(props.id);
     listenSendMsg();
   };

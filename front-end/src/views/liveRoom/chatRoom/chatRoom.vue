@@ -10,7 +10,7 @@
         <!-- <el-icon class="to-right">
           <ArrowRight />
         </el-icon> -->
-        <p>直播聊天</p>
+        <p class="title">Messages</p>
         <el-icon>
           <User />
         </el-icon>
@@ -64,7 +64,7 @@
             @paste="preventPaste($event)"
           ></div>
         </div>
-        <el-button class="emit-chat" @click="emitChat">聊天</el-button>
+        <el-button class="emit-chat" @click="emitChat">Send</el-button>
         <br /><br />
       </footer>
     </div>
@@ -105,7 +105,6 @@ const props = defineProps({
 const hiddenChatRoom = ref(false);
 
 const input = ref();
-const showPic = ref(false);
 const emitChat = () => {
   if (loginStore.isLogin) {
     const content = getContent();
@@ -118,11 +117,11 @@ const emitChat = () => {
       });
     }
   } else {
-    ElMessage.info("未登录不能参与聊天");
+    ElMessage.info("Can't send message without login");
   }
 };
 const preventPaste = (evt: ClipboardEvent) => {
-  console.log(evt.clipboardData);
+  //console.log(evt.clipboardData);
   evt.preventDefault();
   return false;
 };
@@ -133,7 +132,7 @@ const loadPic = () => {};
 const disabledLoadPic = ref(false);
 const imgs = ref([IMG1]);
 
-const { inputImg, getContent } = handleInput(input, props);
+const { inputImg, getContent, showPic } = handleInput(input, props);
 const { chatHistory } = useSocketInit(props);
 
 const showPicFn = () => {
@@ -145,7 +144,12 @@ const showPicFn = () => {
 .chat-room {
   position: relative;
   height: calc(100vh - var(--header-height));
+  background: rgba(31, 31, 35, 0.01);
 
+  backdrop-filter: blur(60px);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-sizing: border-box;
+  padding: 5px;
   .show-room {
     font-size: 30px;
     font-weight: 600;
@@ -156,7 +160,13 @@ const showPicFn = () => {
     transform: rotate(-90deg);
     color: #fff;
   }
-
+  .title {
+    font-family: HarmonyOS_Sans_SC_Bold;
+    font-size: 15px;
+    // font-weight: bold;
+    line-height: 15px;
+    letter-spacing: 0em;
+  }
   .icon-active {
     color: #fff;
     opacity: 0;
@@ -175,7 +185,7 @@ const showPicFn = () => {
     display: flex;
     flex-direction: column;
 
-    background-color: #1f1f23;
+    // background-color: #1f1f23;
 
     .header {
       height: 72px;
@@ -226,17 +236,28 @@ const showPicFn = () => {
       bottom: 0px;
       box-sizing: border-box;
       padding: 10px;
+      padding-bottom: 20px;
+
       width: var(--chat-room-width);
       color: #fff;
-      background-color: #313131;
+      border-radius: 8px;
+      opacity: 0.4;
+      box-sizing: border-box;
+      background: linear-gradient(
+        251deg,
+        rgba(64, 227, 255, 0.3) 0%,
+        rgba(245, 72, 248, 0.3) 100%
+      );
 
+      backdrop-filter: blur(60px);
       .input-wrap {
         height: 90px;
         box-sizing: border-box;
-        border: 1px solid #aaa;
         border-radius: 5px;
 
         overflow-y: scroll;
+
+        position: relative;
 
         -ms-overflow-style: none;
         overflow: -moz-scrollbars-none;
@@ -244,10 +265,20 @@ const showPicFn = () => {
         &::-webkit-scrollbar {
           width: 0 !important;
         }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 20px;
+          right: 70px;
+          width: 0px;
+          height: 104px;
+          opacity: 1;
 
+          border: 1px solid #000;
+        }
         .chat-input {
           width: 100%;
-          height: 50px;
+          height: 90px;
           box-sizing: border-box;
           padding: 5px 60px 0 40px;
 
@@ -287,7 +318,7 @@ const showPicFn = () => {
           width: 350px;
           height: 300px;
 
-          background-color: #313131;
+          // background-color: #313131;
 
           .close-pic {
             position: absolute;
@@ -304,10 +335,13 @@ const showPicFn = () => {
       }
 
       .emit-chat {
+        width: 40px;
+        height: 40px;
         background-color: var(--btn-bcc);
         color: #fff;
-
+        margin-top: -30px;
         float: right;
+        margin-right: 10px;
       }
     }
 

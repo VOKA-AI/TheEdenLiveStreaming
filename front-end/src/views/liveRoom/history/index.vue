@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>往期直播</p>
+    <p>Live Recordings</p>
     <div class="line-wr">
       <img src="@/assets/img/1.jpg" alt="" class="history" />
       <img src="@/assets/img/2.jpg" alt="" class="history" />

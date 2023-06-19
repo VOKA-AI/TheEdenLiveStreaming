@@ -6,35 +6,35 @@
   }
 
   @font-face {
-    font-family: "HarmonyOS_Sans_SC_Black";
+    font-family: "HarmonyOS_Sans_SC_Bold";
     src: url("@/assets/font/HarmonyOS_Sans_SC_Bold.ttf");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
-    font-family: "HarmonyOS_Sans_SC_Black";
+    font-family: "HarmonyOS_Sans_SC_Light";
     src: url("@/assets/font/HarmonyOS_Sans_SC_Light.ttf");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
-    font-family: "HarmonyOS_Sans_SC_Black";
+    font-family: "HarmonyOS_Sans_SC_Medium";
     src: url("@/assets/font/HarmonyOS_Sans_SC_Medium.ttf");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
-    font-family: "HarmonyOS_Sans_SC_Black";
+    font-family: "HarmonyOS_Sans_SC_Regular";
     src: url("@/assets/font/HarmonyOS_Sans_SC_Regular.ttf");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
-    font-family: "HarmonyOS_Sans_SC_Black";
+    font-family: "HarmonyOS_Sans_SC_Thin";
     src: url("@/assets/font/HarmonyOS_Sans_SC_Thin.ttf");
     font-weight: normal;
     font-style: normal;

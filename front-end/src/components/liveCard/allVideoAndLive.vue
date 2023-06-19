@@ -5,19 +5,23 @@
       <div
         class="live header-btn"
         :class="{ active: isActive }"
-        @click="isActive = true"
+        @click="liveClick"
       >
         往期直播
       </div>
       <div
         class="vidos header-btn"
         :class="{ active: !isActive }"
-        @click="isActive = false"
+        @click="videoCilck"
       >
         视频
       </div>
     </div>
-    <main class="content" :class="{ middle: props.scale === 'middle' }">
+    <main
+      class="content"
+      :class="{ middle: props.scale === 'middle' }"
+      v-show="isActive"
+    >
       <card
         :scale="props.scale"
         :title="item.title"
@@ -30,7 +34,7 @@
         @enter-live-room="enterLiveRoom(item.userName)"
       ></card>
     </main>
-    <footer>
+    <footer v-show="isActive">
       <el-pagination
         class="pagination"
         background
@@ -80,6 +84,14 @@ const enterLiveRoom = (name: string) => {
 };
 
 const { cardData, pageConfig, isActive } = useRequest(props.isByType, props);
+
+const videoCilck = () => {
+  isActive.value = false;
+};
+
+const liveClick = () => {
+  isActive.value = true;
+};
 </script>
 
 <style scoped lang="scss">
@@ -88,6 +100,7 @@ const { cardData, pageConfig, isActive } = useRequest(props.isByType, props);
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 120px;
   .header {
     color: #fff;
     display: flex;
@@ -129,13 +142,16 @@ const { cardData, pageConfig, isActive } = useRequest(props.isByType, props);
     padding: 0 15px;
     box-sizing: border-box;
     .card {
-      margin-right: 15px;
+      margin-right: 20px;
       color: #fff;
+    }
+    .card:nth-of-type(5n) {
+      margin-right: 0;
     }
   }
   .content.middle {
     padding: 0;
-    margin-top: 150px;
+    margin-top: 80px;
     width: 1500px;
     justify-content: flex-start;
     .card {
@@ -143,6 +159,7 @@ const { cardData, pageConfig, isActive } = useRequest(props.isByType, props);
     }
   }
   footer {
+    // margin-bottom: 120px;
     .pagination {
       text-align: center;
       margin: 0 auto;

@@ -43,7 +43,9 @@
         </el-button>
       </div>
     </el-form-item>
-    <p class="use-email" @click="useEmail = !useEmail">USE Email</p>
+    <p class="use-email" @click="useEmail = !useEmail">
+      Use {{ useEmail ? "phone number" : "Email" }} instead
+    </p>
     <div class="btn">
       <el-button
         class="cancle-btn"
@@ -93,11 +95,19 @@ const { logUp, getCode } = useLogupMethods(
   flex-direction: column;
   align-self: center;
   color: #fff;
+  padding: 0 40px;
+
   .use-email {
+    font-family: HarmonyOS_Sans_SC_Bold;
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 0em;
+
+    color: #00fff7;
     cursor: pointer;
     margin-top: -10px;
     // margin-bottom: 25px;
-    width: 200px;
+    width: 250px;
   }
 
   :deep(input) {
@@ -105,13 +115,15 @@ const { logUp, getCode } = useLogupMethods(
   }
 
   .code {
-    width: 350px;
+    width: 300px;
   }
   .code-btn {
+    border: none;
     width: 150px;
     background-color: #1f1f23;
     height: 42px;
     margin-left: 10px;
+    border-radius: 24px;
   }
 
   .el-form-item {
@@ -121,8 +133,10 @@ const { logUp, getCode } = useLogupMethods(
   :deep(.el-input__wrapper) {
     width: 500px;
     height: 42px;
-    background-color: #494949 !important;
-    box-shadow: none;
+    border-radius: 24px;
+    background: #292929;
+
+    box-shadow: inset 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   }
   :deep(.el-input__wrapper:focus-within) {
     border: 1px solid #00fff7;
@@ -137,7 +151,7 @@ const { logUp, getCode } = useLogupMethods(
     .logup-btn {
       font-family: HarmonyOS_Sans_SC_Bold;
       font-size: 15px;
-      font-weight: bold;
+      // font-weight: bold;
       line-height: 15px;
       text-align: center;
       letter-spacing: 0em;
@@ -146,16 +160,24 @@ const { logUp, getCode } = useLogupMethods(
       border: none;
       width: 100px;
       height: 42px;
-      border-radius: 4px;
+      border-radius: 24px;
       opacity: 1;
       // margin-top: 50px;
       margin: 50px 20px 30px;
     }
     .logup-btn {
-      background: linear-gradient(113deg, #40e3ff 1%, #f548f8 100%);
+      border-radius: 24px;
+
+      background: linear-gradient(
+        113deg,
+        rgba(64, 227, 255, 0.3) 0%,
+        rgba(245, 72, 248, 0.3) 100%
+      );
+
+      backdrop-filter: blur(60px);
     }
     .cancle-btn {
-      background-color: #1f1f23;
+      background-color: transparent;
     }
   }
 

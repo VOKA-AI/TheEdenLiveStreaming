@@ -18,7 +18,7 @@ const route = useRoute();
 const parmas = route.params;
 const typeId = ref(Number(parmas.typeId));
 onBeforeRouteUpdate((to) => {
-  console.log("update");
+  //console.log("update");
   typeId.value = Number(to.params.typeId);
 });
 </script>

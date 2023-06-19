@@ -32,23 +32,23 @@ export const useRequest = (type: "0" | "1", props: any) => {
       pageConfig.currentPage,
       pageConfig.pageSize
     );
-    console.log(data.code);
+    //console.log(data.code);
     if (data.code === 0) {
       pageConfig.total = data.result.total;
       cardData.value.length = 0;
-      console.log(data.result.records);
+      //console.log(data.result.records);
       cardData.value.push(...data.result.records);
-      console.log("onlineNumber", cardData.value[0]);
+      //console.log("onlineNumber", cardData.value[0]);
     } else {
       // console.log(data);
-      ElMessage.warning(data.message)
+      ElMessage.warning(data.message);
     }
   };
 
   watch(
     () => pageConfig.currentPage,
     () => {
-      console.log("updateData");
+      //console.log("updateData");
       updateData();
     }
   );
@@ -56,7 +56,7 @@ export const useRequest = (type: "0" | "1", props: any) => {
   watch(
     () => props.typeOrUserId,
     () => {
-      console.log("updateData1");
+      //console.log("updateData1");
       if (pageConfig.currentPage === 1) {
         updateData();
       } else {

@@ -25,7 +25,7 @@ export function logUpRule(logUpForm: any) {
     if (value === "") {
       cb(new Error("请确认密码"));
     } else if (value !== userSignupMsg.password) {
-      console.log(123);
+      //console.log(123);
       cb(new Error("密码不一致"));
     } else {
       cb();

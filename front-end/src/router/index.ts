@@ -3,11 +3,13 @@ import Home from "@/views/home/index.vue";
 import { getLiveRoom, getRoomState } from "@/request/config";
 import { ElMessage } from "element-plus";
 import { useLiveStore } from "@/stores/live";
+import { getPlayerInfo } from "@/request/liveRoom";
 let liveStore: any;
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      name: "root",
       path: "/",
       redirect: "/u/home",
     },
@@ -27,11 +29,22 @@ const router = createRouter({
         default: () => import("../views/user/index.vue"),
         right: () => import("../views/user/leftAside/LeftAside.vue"),
       },
-      beforeEnter(to, from, next) {
+      async beforeEnter(to, from, next) {
         if (!to.params.userId) {
-          console.log("缺少userId参数");
+          //console.log("缺少userId参数");
           next({ path: "/" });
         } else {
+          //console.log(to.params.userId);
+          const { data: userData } = await getPlayerInfo({
+            userId: parseInt(to.params.userId as string),
+          });
+          if (!liveStore) {
+            liveStore = useLiveStore();
+          }
+          if (userData.code === 0) {
+            liveStore.setUserInfo(userData.result);
+          }
+
           next();
         }
       },
@@ -48,10 +61,10 @@ const router = createRouter({
       //若有，请求这个直播间的数据然后同步在pinia里面
       beforeEnter: async (to, from) => {
         // reject the navigation
-        console.log(to, from);
+        //console.log(to, from);
         if (to.params.id) {
           const req: any = await getLiveRoom(to.params.id as string);
-          console.log(req, 6666);
+          //console.log(req, 6666);
           if (req.data.code === 500) {
             ElMessage({
               message: "搜索的直播间不存在，请重新搜索.",
@@ -65,13 +78,20 @@ const router = createRouter({
               liveStore = useLiveStore();
             }
             liveStore.setRoomInfo(val);
-            console.log(data, "roomsatte");
+            //console.log(data, "roomsatte");
+            const { data: userData } = await getPlayerInfo({
+              userName: to.params.id as string,
+            });
+            if (userData.code === 0) {
+              liveStore.setUserInfo(userData.result);
+            }
             if (data.result === 1) {
               // 正在直播
 
               return true;
             } else {
               ElMessage.success("主播不在直播");
+
               return {
                 name: "user",
                 params: {
@@ -90,6 +110,7 @@ const router = createRouter({
       },
     },
     {
+      name: "playRoom",
       path: "/:id/PlayRoom",
       components: {
         left: () => import("@/views/commentAside/index.vue"),
@@ -98,6 +119,7 @@ const router = createRouter({
       },
     },
     {
+      name: "configure",
       path: "/:id/configure",
       component: () => import("@/views/configure/index.vue"),
     },
@@ -110,7 +132,7 @@ const router = createRouter({
       },
       beforeEnter(to, from, next) {
         if (!to.params.typeId) {
-          console.log("缺少typeId参数");
+          //console.log("缺少typeId参数");
           next({ path: "/" });
         } else {
           if (!liveStore) {

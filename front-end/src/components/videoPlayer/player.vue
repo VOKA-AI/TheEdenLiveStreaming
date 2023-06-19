@@ -1,17 +1,19 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="playerwr">
-    <div id="xg"></div>
+    <video id="video" controls autoplay style="width:100%;height:100%;"></video>
+    <div id="status"></div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { onMounted } from "vue";
-import { usePlayer } from "./composable/usePlayer";
+import { loadHLS } from "./composable/usePlayerIPFS";
 
 onMounted(() => {
-  const player = usePlayer("#xg");
-});
+  loadHLS();
+})
+
 </script>
 
 <style scoped lang="scss">

@@ -3,6 +3,7 @@
  */
 
 import type { Ref } from "vue";
+import { ref, inject } from "vue";
 
 import { sendMsg } from "@/utils/socket/useSocket";
 import { useLoginStore } from "@/stores/login";
@@ -28,13 +29,22 @@ function escapeText(value: string): string {
     .trim();
 }
 
+const getBaseUrl = () => {
+  let baseURL: string;
+  return () => {
+    if (baseURL) return baseURL;
+    baseURL = inject("backendHost") || "http://176.34.17.140";
+    return baseURL;
+  };
+};
+const baseURL = getBaseUrl();
 // 是否为有效地址，防止外来图片
 const reg = /^(https?:\/\/)[\w.:]+/g;
 const isValitableUrl = (url: string) => {
   const match = url.match(reg);
   const base = match && match[0];
   if (
-    base === "http://18.163.79.28:8081" ||
+    base === baseURL() + ":8081" ||
     base === "http://localhost:5173" ||
     url.startsWith("/") ||
     url.startsWith(".")
@@ -47,7 +57,7 @@ const isValitableUrl = (url: string) => {
 
 // 点击图片
 const inputImg = (url: string) => {
-  console.log(url);
+  //console.log(url);
   if (isValitableUrl(url)) {
     const imgTemplate = `<img src=${url} style="width:30px;height:30px">`;
     document.execCommand("insertHTML", false, imgTemplate);
@@ -57,6 +67,7 @@ const inputImg = (url: string) => {
 const loginStore = useLoginStore();
 export function handleInput(textDOM: Ref<any>, props: any) {
   const inputMsg: InputMsg[] = [];
+  const showPic = ref(false);
   // 添加信息
   const addInputMsg = (type: "img" | "text", value: string) => {
     if (
@@ -75,6 +86,7 @@ export function handleInput(textDOM: Ref<any>, props: any) {
 
   // 发送时整理内容
   const getContent = () => {
+    showPic.value = false;
     if (!loginStore.isLogin) {
       ElMessage.info("未登录不能评论");
       return;
@@ -110,7 +122,7 @@ export function handleInput(textDOM: Ref<any>, props: any) {
       ElMessage.info("不能发送空消息");
       return;
     }
-    console.log(inputMsg);
+    //console.log(inputMsg);
     sendMsg(inputMsg, props.id);
     textDOM.value.innerHTML = "";
     return inputMsg;
@@ -120,6 +132,7 @@ export function handleInput(textDOM: Ref<any>, props: any) {
     inputImg,
     inputMsg,
     getContent,
+    showPic,
   };
 }
 

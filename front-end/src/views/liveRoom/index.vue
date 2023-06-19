@@ -28,10 +28,11 @@ onMounted(async () => {
   const req = await getLiveRoom(route.params.id as string);
   const val = req!.data!.result;
   userData.value = req!.data!.result;
+  //console.log(val)
   liveStore.setRoomInfo(val);
 });
 onBeforeRouteUpdate(async (to, from) => {
-  console.log(to, from, 666);
+  //console.log(to, from, 666);
   if (to.params.id !== from.params.id) {
     userData.value = await getLiveRoom(to.params.id as string);
   }
@@ -52,7 +53,6 @@ onBeforeRouteUpdate(async (to, from) => {
 .main {
   overflow-y: scroll;
   box-sizing: border-box;
-  background-color: #000;
 }
 .main::-webkit-scrollbar {
   width: 0 !important;

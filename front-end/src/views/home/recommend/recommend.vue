@@ -5,11 +5,7 @@
   <div class="recommend">
     <main>
       <!-- <small-card></small-card> -->
-      <large-card
-        :card-type="1"
-        class="recommend-card"
-        v-if="loginStore.isLogin"
-      ></large-card>
+      <large-card :card-type="1" v-if="loginStore.isLogin"></large-card>
       <large-card :card-type="0"></large-card>
     </main>
   </div>
@@ -26,15 +22,14 @@ const loginStore = useLoginStore();
 .recommend {
   box-sizing: border-box;
   overflow: hidden;
-  padding: 70px;
+  width: 1720px;
+  padding: 30px var(--home-main-padding);
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 main {
   padding: 0;
   margin: 0;
-}
-
-.recommend-card {
-  margin-bottom: 50px;
 }
 </style>

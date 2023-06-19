@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2, .cls-6 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #292929;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        opacity: 0;
+      }
+
+      .cls-4 {
+        stroke: #fff;
+        stroke-width: 0.5px;
+      }
+
+      .cls-5 {
+        stroke: none;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#40e3ff"/>
+      <stop offset="1" stop-color="#f548f8"/>
+    </linearGradient>
+  </defs>
+  <g id="button_browse_refresh" transform="translate(-1704 -97)">
+    <circle id="椭圆_31" data-name="椭圆 31" class="cls-1" cx="13" cy="13" r="13" transform="translate(1704 97)"/>
+    <g id="椭圆_6" data-name="椭圆 6" class="cls-2" transform="translate(1704 97)">
+      <circle class="cls-5" cx="13" cy="13" r="13"/>
+      <circle class="cls-6" cx="13" cy="13" r="12.5"/>
+    </g>
+    <g id="页面-1" transform="translate(1705.686 110) rotate(-45)">
+      <g id="_8.3我的_登录_" data-name="8.3我的【登录】">
+        <g id="_2" data-name="2">
+          <g id="刷新">
+            <rect id="矩形" class="cls-3" width="16" height="16"/>
+            <path id="形状结合" class="cls-4" d="M8.513,15.316,8.458,15.3a.653.653,0,0,1-.087-.036h0l-.018-.009L8.3,15.226l.065.037a.675.675,0,0,1-.089-.053l-.034-.026-.025-.022-.032-.032-.017-.018-.029-.034c-.011-.014-.022-.03-.032-.045l-.01-.015-.02-.035-.015-.029L8.05,14.92c-.005-.012-.01-.024-.014-.037l-.009-.028c0-.014-.008-.029-.011-.043l0-.024A.641.641,0,0,1,8,14.721a.67.67,0,0,1,.066-.347L9.4,11.7a.667.667,0,0,1,1.223.525L10.6,12.3l-.789,1.58a5.333,5.333,0,1,0-3.526-.439.667.667,0,1,1-.6,1.192,6.669,6.669,0,1,1,2.983.7A.666.666,0,0,1,8.513,15.316Z" transform="translate(-0.667 -0.667)"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

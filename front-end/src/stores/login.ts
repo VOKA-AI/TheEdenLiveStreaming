@@ -26,6 +26,12 @@ export const useLoginStore = defineStore("login", () => {
   const changeSignUpOrInStatus = (val: boolean) => {
     signUpOrIn.value = val;
   };
+
+  const clearUserData = () => {
+    userData.name = "";
+    userData.id = "";
+    userData.portrait = "";
+  };
   return {
     changeShowLoginStatus,
     changeSignUpOrInStatus,
@@ -33,5 +39,6 @@ export const useLoginStore = defineStore("login", () => {
     showLogin,
     isLogin,
     userData,
+    clearUserData,
   };
 });

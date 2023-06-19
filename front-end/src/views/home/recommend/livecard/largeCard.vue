@@ -11,8 +11,9 @@
       <div class="wrap" ref="wrap">
         <div class="a-live-card" v-for="item in activeLiveCard">
           <div style="position: relative">
-            <div class="live">直播</div>
-            <div class="spectator">{{ item.onlineNumber }}名观众</div>
+            <div class="live">Live</div>
+            <div class="spectator">{{ item.onlineNumber }} Watching</div>
+            <div class="nickname">{{ item.userName }}</div>
             <img
               :src="item.coverUrl"
               alt=""
@@ -29,7 +30,6 @@
             />
             <div>
               <div class="live-title">{{ item.title }}</div>
-              <div class="user-name">{{ item.userName }}</div>
               <div class="info">{{ item.introduction }}</div>
               <div class="tag-box">
                 <span class="tag" v-for="tag in item.tags">{{ tag.tag }}</span>
@@ -68,9 +68,8 @@ const toDetailRoom = (id: string) => {
   });
 };
 
-const { toLeft, refresh, toRight, pageConfig, liveCard, isShow } = usePagenation(
-  props.cardType
-);
+const { toLeft, refresh, toRight, pageConfig, liveCard, isShow } =
+  usePagenation(props.cardType);
 
 const activeLiveCard = computed(() => {
   return liveCard.value.slice(
@@ -82,8 +81,8 @@ const activeLiveCard = computed(() => {
 const toUserDetail = (userId: number) => {
   const UserSelfId = loginStore.isLogin ? loginStore.userData.name : "u";
 
-  console.log(UserSelfId, userId);
-  console.log("userdata", loginStore.userData);
+  //console.log(UserSelfId, userId);
+  //console.log("userdata", loginStore.userData);
 
   router.push({
     name: "user",
@@ -101,7 +100,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .card {
-  height: 300px;
   .live-card {
     width: 1502px;
     margin: 10px 0;
@@ -115,19 +113,21 @@ onMounted(() => {
     &::-webkit-scrollbar {
       width: 0 !important;
     }
-    // justify-content: space-around;
     .wrap {
-      // width: 100%;
       display: flex;
       flex-wrap: nowrap;
       transition: transform 0.3s;
-      transform: translate3d(0, 0, 0);
       .a-live-card {
         position: relative;
-        margin-right: 8px;
+        margin: 0;
+        padding: 0;
+        margin-right: 5px;
+        width: 290px;
+        border-radius: 5px;
+        overflow: hidden;
 
         .cover-img {
-          width: 294px;
+          width: 290px;
           height: 165px;
           padding-bottom: 10px;
         }
@@ -137,14 +137,27 @@ onMounted(() => {
           left: 20px;
           top: 20px;
           background-color: red;
+          border-radius: 5px;
+          font-size: 20px;
           color: #fff;
           padding: 2px 5px;
         }
-
-        .spectator {
+        .nickname {
           left: 20px;
           bottom: 30px;
           position: absolute;
+          font-size: 20px;
+          border-radius: 5px;
+          color: #fff;
+          background-color: rgba(0, 0, 0, 0.357);
+          padding: 2px 5px;
+        }
+        .spectator {
+          right: 20px;
+          bottom: 30px;
+          position: absolute;
+          font-size: 20px;
+          border-radius: 5px;
           color: #fff;
           background-color: rgba(0, 0, 0, 0.357);
           padding: 2px 5px;
@@ -152,38 +165,48 @@ onMounted(() => {
 
         .dest {
           display: flex;
+          min-height: 80px;
           .avatar {
             width: 30px;
             height: 30px;
             border-radius: 50%;
-            margin: 0 10px 0 10px;
+            margin-right: 10px;
           }
 
           .live-title {
+            font-size: 20px;
+          }
+          .user-name,
+          .info {
             text-overflow: ellipsis;
             white-space: nowrap;
             width: 220px;
             overflow: hidden;
-
-            font-size: 11px;
-            font-weight: 500;
-            line-height: 14px;
+          }
+          .user-name,
+          .info {
+            font-size: 9px;
+            color: #999;
+          }
+          .tag-box {
+            margin-left: -6px;
+            padding-top: 0px;
+            max-height: 90px;
+            overflow: hidden;
           }
 
           span.tag {
+            font-size: 12px;
+            display: inline-block;
             background-color: #aaa;
             padding: 0 10px;
-            margin: 0 5px;
+            margin: 2px 5px;
             border-radius: 10px;
+            white-space: nowrap;
           }
         }
       }
     }
-  }
-
-  .controls {
-    box-sizing: border-box;
-    padding-right: 85px;
   }
 }
 </style>

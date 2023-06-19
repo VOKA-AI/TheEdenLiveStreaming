@@ -30,9 +30,6 @@
 import Card from "@/components/liveCard/card.vue";
 import allVideoAndLive from "@/components/liveCard/allVideoAndLive.vue";
 import { useRoute } from "vue-router";
-import { loadingImg } from "@/utils/loadingImg";
-loadingImg;
-
 const route = useRoute();
 </script>
 

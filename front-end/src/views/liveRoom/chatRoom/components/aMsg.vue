@@ -5,9 +5,14 @@
     <strong class="name">{{ props.name }}</strong
     >:
     <div class="content">
-      <div v-for="item in content" style="display: inline-block">
-        <img :src="item.value" alt="" v-if="item.type === 'img'" class="img-text" />
-        <span v-if="item.type === 'text'" class="text">{{ item.value }}</span>
+      <div tyle="display: inline-block">
+        <!-- <img
+          :src="item.value"
+          alt=""
+          v-if="item.type === 'img'"
+          class="img-text"
+        /> -->
+        <span class="text">{{ content }}</span>
       </div>
     </div>
   </div>
@@ -21,10 +26,10 @@ type Msg = {
 
 const props = withDefaults(
   defineProps<{
-    name: string;
+    name?: string;
     nameColor?: string;
-    content: Msg[];
-    medal: Array<any> | undefined;
+    content: String;
+    medal?: Array<any> | undefined;
   }>(),
   {
     nameColor: "#fff",

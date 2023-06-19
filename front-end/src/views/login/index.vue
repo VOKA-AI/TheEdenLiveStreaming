@@ -56,12 +56,12 @@ const loginstore = useLoginStore();
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: fixed;
-  top: 0;
+  top: var(--header-height);
   left: 0;
 
-  background: rgba(128, 128, 128, 0.01);
+  color: #fff;
 
   backdrop-filter: blur(60px);
 
@@ -69,15 +69,16 @@ const loginstore = useLoginStore();
 
   .card {
     width: 420px;
-    margin: 30px auto;
+    margin: 10px auto;
 
     width: 580px;
-    border-radius: 4px;
     opacity: 1;
 
-    background: #1f1f23;
+    // background: transparent;
     border: 0;
 
+    border-radius: 24px;
+    background: rgba(31, 31, 35, 0.01);
     .header {
       display: block;
       // margin-bottom: 30px;
@@ -115,14 +116,32 @@ const loginstore = useLoginStore();
 
     .change-btn {
       display: inline-block;
+      position: relative;
       padding: 0 5px;
+      font-family: HarmonyOS_Sans_SC_Bold;
+      font-size: 19px;
       font-weight: bold;
 
       cursor: pointer;
 
       border-bottom: 3px solid transparent;
     }
+    .active::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -20px;
+      left: 5px;
+      width: 80px;
+      height: 2px;
+      border-radius: 117px;
+      opacity: 1;
 
+      background: linear-gradient(90deg, #40e3ff 0%, #f548f8 100%);
+    }
+    .change-btn:first-of-type {
+      margin-right: 18px;
+    }
     .close {
       position: absolute;
       top: -28px;

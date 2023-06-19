@@ -25,6 +25,7 @@ serve.interceptors.request.use(
     // 根据本地是否存在token判断用户的登录状况
     // 每次请求都携带token，这个请求是否需要token由后台去判断
     const token = getTokenAUTH();
+    console.log(token)
     token &&
       config.headers &&
       (config.headers.Authorization = "Bearer " + token);
@@ -49,10 +50,10 @@ const handleError = async (status: number | undefined) => {
       console.log("参数检验失败");
       break;
     case 401:
-      ElMessage.error("token过期");
+      // ElMessage.error("token过期");
       removeTokenAUTH();
       removeStorage("userData");
-      loginstore.changeShowLoginStatus(true);
+      //loginstore.changeShowLoginStatus(true);
       break;
     case 403:
       ElMessage.error("没有相关权限");

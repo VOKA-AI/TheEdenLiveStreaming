@@ -12,9 +12,11 @@ import Week from "./week.vue";
 
 <style scoped lang="scss">
 .aside {
-  width: 200px;
+  width: var(--home-left-side-width);
   height: calc(100vh - var(--header-height));
-  background: #1f1f23;
+
+  backdrop-filter: blur(60px);
+  // background: #1f1f23;
   .week {
     margin-top: 10px;
     margin-bottom: 33px;

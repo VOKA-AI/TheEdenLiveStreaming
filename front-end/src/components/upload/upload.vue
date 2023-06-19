@@ -44,7 +44,7 @@ const handleAvatarSuccess: UploadProps["onSuccess"] = (
   uploadFile
 ) => {
   // imageUrl.value = URL.createObjectURL(uploadFile.raw);
-  console.log(response, uploadFile);
+  //console.log(response, uploadFile);
 };
 
 const fileList = ref([])
@@ -77,11 +77,11 @@ const upload = async ()=>{
 
 const handleZoomin = () => {
   dialogVisible.value = true
-console.log('zoomin');
+//console.log('zoomin');
 }
 const handleDelete = () => {
   imageUrl.value = ''
-console.log('delete');
+//console.log('delete');
 }
 const handleVlose = () => {
   dialogVisible.value = false
