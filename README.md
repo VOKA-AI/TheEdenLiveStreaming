@@ -1,7 +1,7 @@
 ## Introduction
 
 ***The Eden*** is a decentralized live streaming platform for Web3.0. 
-which focusing on decentralized games and AMA interviews on BSC,[ETH](https://ethereum.org/en/) Solona, and Polygon network. 
+which focusing on decentralized games and AMA interviews on BSC, [ETH](https://ethereum.org/en/) Solona, and Polygon network. 
 
 The project will provide 3D NFT avatar generating technology from 2D PFP NFT by using [our AI algorithm](https://github.com/VOKA-AI/3DAvatarGenerator), and be able to live stream with the 3D avatars. 
 Different from previous live broadcasts, The Eden creates the opportunity for interaction between viewers and anchors in the same space through Metaverse space scenes. 
