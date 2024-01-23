@@ -1,7 +1,7 @@
 ## Introduction
 
 ***The Eden*** is a decentralized live streaming platform for Web3.0. 
-which focusing on decentralized games and AMA interviews on [ETH](https://ethereum.org/en/) and Polygon network. 
+which focusing on decentralized games and AMA interviews on BSC,[ETH](https://ethereum.org/en/) Solona, and Polygon network. 
 
 The project will provide 3D NFT avatar generating technology from 2D PFP NFT by using [our AI algorithm](https://github.com/VOKA-AI/3DAvatarGenerator), and be able to live stream with the 3D avatars. 
 Different from previous live broadcasts, The Eden creates the opportunity for interaction between viewers and anchors in the same space through Metaverse space scenes. 
@@ -21,7 +21,7 @@ Media data delivery of the platform was based on [IPFS](https://ipfs.tech/). The
 </div>
 
 1. KOLs makes videos on the client, including fetching NFT picture from blockchain, generate 3D avatar, and used as face mask, then send them to ***The Eden*** server over [socket.io](https://github.com/socketio/socket.io).
-2. ***The Eden*** server will do some pre-processing, such as encoding, then uploading it to IPFS network.
+2. ***The Eden*** server will do some pre-processing, such as encoding, then uploading it to IPFS network, or Greenfield network.
 3. Audiences using client to interact with ***The Eden***, geting data hash from server, combine with *smart contract*, audiences can pay to subscribe, send virtual gifts to KOLs.
 4. Audiences use data hash to get live stream from IPFS.
 
